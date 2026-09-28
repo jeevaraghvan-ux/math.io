@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>math.io — 5th Grade Math Notes, Reimagined</title>
+  <meta name="theme-color" content="#0d0f17">
+
+  <!-- Open Graph / Discord / LinkedIn / iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="math.io — 5th Grade Math Notes, Reimagined">
+  <meta property="og:description" content="A super colorful 5th grade math notebook for properties of multiplication, division, and custom math notes. made with love from Jeeva R.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/jeeva/math.io/main/preview.png">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="math.io — 5th Grade Math Notes, Reimagined">
+  <meta name="twitter:description" content="A super colorful 5th grade math notebook for properties of multiplication, division, and custom math notes. made with love from Jeeva R.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ios27.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then(reg => {
+          console.log('Offline Service Worker Registered!', reg);
+        });
+      });
+    }
+  </script>
+  <meta name="google-site-verification" content="ruqkjnOu4NLBdYtGlgRJkV2zUueIZPwT079uHTzfgE8" />
+</head>
+<body>
+  <div id="mouse-spotlight"></div>
+  <!-- ================= SUPER COOL HIGH-TECH LOADING SCREEN ================= -->
+  <div id="loader-screen" class="loader-overlay">
+    <div class="loader-bg-glow"></div>
+    <div class="loader-cyber-grid"></div>
+    <div class="math-floating-symbols" id="floating-symbols-container"></div>
+    
+    <div class="loader-content">
+      <div class="loader-emblem">
+        <div class="loader-ring loader-ring-1"></div>
+        <div class="loader-ring loader-ring-2"></div>
+        <div class="loader-ring loader-ring-3"></div>
+        <div class="loader-core-orb">
+          <span class="orb-glyph">∑</span>
+        </div>
+        <span class="loader-logo-script">math.io</span>
+      </div>
+      
+      <div class="loader-badge"><span class="badge-dot-live"></span> 5TH GRADE QUANTUM MATHEMATICS v3.2</div>
+      <h2 class="loader-title">math, <span class="neon-reimagined">REIMAGINED.</span></h2>
+      
+      <div class="loader-bar-wrap">
+        <div class="loader-bar-fill" id="loader-bar">
+          <div class="loader-bar-sparkle"></div>
+        </div>
+      </div>
+      
+      <div class="loader-status-row">
+        <span class="loader-status-text" id="loader-status"><span class="terminal-prefix">&gt;</span> Initializing quantum factor matrices...</span>
+        <span class="loader-pct" id="loader-pct">0%</span>
+      </div>
+
+      <div class="loader-diagnostic-hud" id="loader-diagnostic-hud">
+        <span class="hud-item">[SYS: CALIBRATING]</span>
+        <span class="hud-item">[VAULT: LEVEL 5 RESTRICTED]</span>
+        <span class="hud-item">[ASMR AUDIO: READY]</span>
+      </div>
+      
+      <p class="loader-author">made with love from <strong class="author-name-highlight">Jeeva R.</strong></p>
+
+      <button class="loader-skip-btn" id="loader-skip-btn" title="Skip to notebook">Skip Intro &gt;&gt;</button>
+    </div>
+  </div>
+
+  <!-- ================= FLUID COLORFUL AMBIENT BACKGROUND ================= -->
+  <div class="ambient-fluid-canvas-wrap">
+    <div class="fluid-blob blob-1"></div>
+    <div class="fluid-blob blob-2"></div>
+    <div class="fluid-blob blob-3"></div>
+    <div class="fluid-blob blob-4"></div>
+    <div class="ambient-noise-layer"></div>
+  </div>
+
+  <div id="app" class="main-wrapper">
+    <!-- ================= TOP FLOATING NAVIGATION ================= -->
+    <header class="top-nav-container">
+      <nav class="glass-pill-nav">
+        <div class="nav-left">
+          <a href="#hero" class="nav-brand-cursive" id="nav-brand-logo">math.io</a>
+        </div>
+        
+        <div class="nav-center">
+          <button class="nav-link active" id="nav-btn-home" data-scroll="hero">HOME</button>
+          <button class="nav-link" id="nav-btn-notes" data-scroll="notes-section">NOTES</button>
+        </div>
+
+        <div class="nav-right">
+          <button class="nav-icon-btn" id="btn-cheat-sheet" title="Quick Formula Cheat Sheet">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </button>
+
+          <a href="https://github.com" target="_blank" class="nav-icon-btn" title="View Source on GitHub" style="text-decoration: none;">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </a>
+
+          <button class="nav-icon-btn" id="btn-sound-toggle" title="Toggle Sound FX">
+            <svg class="icon-svg" id="sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <svg class="icon-svg hidden" id="sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </button>
+          <button class="nav-icon-btn" id="btn-cloud-sync" title="Sync to math.io Cloud">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+              <polyline points="12 12 12 16"></polyline>
+              <polyline points="10 14 12 12 14 14"></polyline>
+            </svg>
+          </button>
+          <button class="nav-icon-btn" id="btn-music-toggle" title="Toggle Lo-Fi Beats" style="color: var(--neon-purple);">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18V5l12-2v13"></path>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ================= HERO SECTION (MATCHING SCREENSHOT 1) ================= -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          <span class="hero-script-word">math,</span>
+          <span class="hero-neon-word">REIMAGINED.</span>
+        </h1>
+        
+        <p class="hero-subtext">
+          Master the foundational <strong>5 Properties of Multiplication</strong>, essential <strong>Properties of Division</strong>, and effortlessly store your own 5th grade study notes in neon splendor.
+        </p>
+
+        <div class="hero-action-row">
+          <button class="hero-cta-btn" id="hero-explore-btn">
+            <span>EXPLORE 5TH GRADE NOTES</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button class="hero-secondary-btn" id="hero-create-btn">
+            <span class="star-icon">✦</span> ADD MY NOTES
+          </button>
+        </div>
+
+        <div class="hero-scroll-cue" id="hero-scroll-cue">
+          <div class="cue-pill">
+            <div class="cue-dot"></div>
+          </div>
+          <span class="cue-text">SCROLL TO DISCOVER</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NOTES INTERFACE SECTION (MATCHING SCREENSHOT 2) ================= -->
+    <section id="notes-section" class="notes-section">
+      <!-- VIEW TOGGLE: CAROUSEL VS TABLE -->
+      <div class="view-toggle-bar">
+        <div class="pill-toggle-container">
+          <button class="pill-toggle-btn active" id="view-carousel-btn">CAROUSEL</button>
+          <button class="pill-toggle-btn" id="view-table-btn">TABLE</button>
+          <div class="pill-slider-indicator" id="toggle-slider"></div>
+        </div>
+
+        <!-- SEARCH & FILTER BAR -->
+        <div class="filter-controls-row">
+          <div class="search-input-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="notes-search-input" placeholder="Search math topics, properties, keywords..." />
+            <button id="search-clear-btn" class="search-clear-btn hidden">&times;</button>
+          </div>
+
+          <div class="category-pills-list">
+            <button class="cat-pill active" data-filter="all">All Properties</button>
+            <button class="cat-pill" data-filter="multiplication">Properties of Multiplication</button>
+            <button class="cat-pill" data-filter="division">Properties of Division</button>
+            <button class="cat-pill" data-filter="custom">My Stored Notes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAROUSEL VIEW CONTAINER -->
+      <div id="carousel-view" class="carousel-view-active">
+        <div class="carousel-bracket-frame" id="carousel-bracket-frame">
+          <!-- TOP CORNERS -->
+          <div class="corner-bracket corner-tl"></div>
+          <div class="corner-bracket corner-tr"></div>
+          
+          <!-- TOP EXPERIENCE BADGE -->
+          <div class="frame-experience-badge">
+            <span class="badge-sparkle">✦</span>
+            <span>Experience the all-new notes interface</span>
+          </div>
+
+          <!-- 3D CAROUSEL STAGE -->
+          <div class="carousel-stage-viewport">
+            <div class="carousel-track" id="carousel-track">
+              <!-- Dynamically populated cards -->
+            </div>
+          </div>
+
+          <!-- BOTTOM CORNERS -->
+          <div class="corner-bracket corner-bl"></div>
+          <div class="corner-bracket corner-br"></div>
+        </div>
+
+        <!-- CAROUSEL CONTROLS -->
+        <div class="carousel-navigation-row">
+          <button class="carousel-arrow-btn prev-arrow" id="carousel-prev-btn" aria-label="Previous card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          
+          <div class="carousel-dots-indicator" id="carousel-dots">
+            <!-- Dynamic dots -->
+          </div>
+
+          <button class="carousel-arrow-btn next-arrow" id="carousel-next-btn" aria-label="Next card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- TABLE VIEW CONTAINER (TOGGLEABLE) -->
+      <div id="table-view" class="table-view-container hidden">
+        <div class="table-card-glass">
+          <div class="table-header-info">
+            <h3 class="table-title">Grade 5 Mathematical Index & Notes Catalog</h3>
+            <span class="table-count" id="table-count-badge">5 Topics</span>
+          </div>
+          
+          <div class="table-responsive-wrapper">
+            <table class="notes-data-table">
+              <thead>
+                <tr>
+                  <th>Topic Title</th>
+                  <th>Category</th>
+                  <th>Core Formula / Concept</th>
+                  <th>Properties / Key Points</th>
+                  <th>Type</th>
+                  <th class="actions-header">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                <!-- Dynamically populated rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FLOATING HELP & AUTHOR FOOTER ================= -->
+    <div class="floating-feedback-anchor">
+      <div class="feedback-tooltip-pill" id="feedback-tooltip">
+        <span>Help us improve.</span>
+        <button class="tooltip-close-btn" id="close-tooltip-btn">&times;</button>
+      </div>
+      <button class="feedback-bubble-btn" id="feedback-bubble-btn" title="Send Feedback or Ask a Math Question">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          <line x1="9" y1="10" x2="15" y2="10"></line>
+          <line x1="12" y1="7" x2="12" y2="13"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ================= FLOATING VAULT & ADMIN ANCHOR (BOTTOM CORNER) ================= -->
+    <div class="floating-vault-anchor" id="vault-floating-anchor">
+      <div class="vault-tooltip-pill" id="vault-tooltip">
+        <span class="vault-tooltip-pulse">●</span>
+        <span>ADMIN VAULT</span>
+      </div>
+      <button class="vault-bubble-btn" id="vault-bubble-btn" title="Open Security Vault & Admin Commands (Admin Clearance Required)" style="display: none;">
+        <div class="vault-btn-halo"></div>
+        <div class="vault-gear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            <circle cx="12" cy="16" r="1.5"></circle>
+            <path d="M12 17.5V19"></path>
+          </svg>
+        </div>
+        <span class="vault-badge-label">ADMIN VAULT</span>
+      </button>
+    </div>
+
+    <!-- FOOTER WITH MADE WITH LOVE FROM JEEVA R -->
+    <footer class="app-footer">
+      <div class="footer-left-content">
+        <span class="footer-domain">math.io</span>
+        <span class="footer-divider">•</span>
+        <span>5th Grade Interactive Learning Suite</span>
+      </div>
+
+      <div class="footer-center-controls">
+        <button class="replay-loader-btn" id="replay-loader-btn" title="Replay intro animation">
+          <span>↺ Replay Loading Screen</span>
+        </button>
+      </div>
+
+      <div class="footer-author" id="author-credit-trigger">
+        <span>made with love from <strong class="author-name-highlight">Jeeva R.</strong></span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= MODAL: DETAILED MATH NOTES VIEWER ================= -->
+  <div id="notes-viewer-modal" class="modal-backdrop hidden">
+    <div class="modal-window glass-modal notes-detail-window">
+      <div class="modal-header">
+        <div class="modal-header-badge-row">
+          <span class="modal-cat-badge" id="modal-cat-badge">5TH GRADE MATH</span>
+          <span class="modal-domain-tag">math.io / notes</span>
+        </div>
+        <button class="modal-close-btn" id="modal-notes-close">&times;</button>
+      </div>
+
+      <div class="modal-title-area">
+        <h2 class="modal-topic-title" id="modal-topic-title">Properties of Multiplication</h2>
+        <p class="modal-topic-desc" id="modal-topic-desc">The 5 fundamental laws of multiplication for 5th grade mathematicians.</p>
+      </div>
+
+      <!-- INTERACTIVE TABS INSIDE MODAL (NOTES, VISUAL EXPLORER, QUIZ) -->
+      <div class="modal-internal-tabs">
+        <button class="modal-tab-btn active" id="modal-tab-notes">Structured Notes</button>
+        <button class="modal-tab-btn" id="modal-tab-interactive">Interactive Visualizer</button>
+        <button class="modal-tab-btn" id="modal-tab-practice">Quick Self-Check</button>
+      </div>
+
+      <div class="modal-body-scrollable">
+        <!-- PANE 1: STRUCTURED NOTES CONTENT -->
+        <div id="pane-structured-notes" class="modal-pane active">
+          <div id="modal-sections-container" class="properties-grid-layout">
+            <!-- Dynamically populated detailed cards -->
+          </div>
+        </div>
+
+        <!-- PANE 2: INTERACTIVE VISUALIZER -->
+        <div id="pane-interactive" class="modal-pane hidden">
+          <div class="interactive-sandbox" id="interactive-sandbox-container">
+            <!-- Dynamic visualizer depending on topic -->
+          </div>
+        </div>
+
+        <!-- PANE 3: PRACTICE QUIZ -->
+        <div id="pane-practice" class="modal-pane hidden">
+          <div class="modal-quiz-wrapper" id="modal-quiz-container">
+            <!-- Dynamic quiz cards -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-action secondary" id="modal-print-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print Notes Sheet
+        </button>
+        <button class="btn-modal-action primary" id="modal-done-btn">Got It!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: ADMIN SECURITY VAULT ================= -->
+  <!-- ================= DAILY RIDDLE MODAL ================= -->
+  <div id="riddle-modal" class="modal-backdrop hidden">
+    <div class="modal-window auth-modal-content" style="max-width: 450px; border: 1px solid var(--neon-magenta); box-shadow: 0 0 30px rgba(255, 55, 95, 0.3);">
+      <div class="modal-header">
+        <h2 class="modal-title" style="color: var(--neon-magenta);">Daily Math Riddle!</h2>
+        <button class="modal-close" id="riddle-close-btn">&times;</button>
+      </div>
+      <div class="modal-body auth-body" style="padding: 24px; text-align: center;">
+        <p style="font-size: 1.1rem; color: #fff; margin-bottom: 20px;">I am an odd number. Take away a letter and I become even. What number am I?</p>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <input type="text" id="riddle-answer" placeholder="Type your answer..." style="flex: 1; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff;" />
+          <button id="riddle-submit" class="btn-modal-action primary" style="background: var(--neon-magenta);">Guess</button>
+        </div>
+        <p id="riddle-feedback" style="color: var(--neon-cyan); font-weight: bold;"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="vault-modal" class="modal-backdrop hidden">
+    <div class="modal-window glass-modal vault-window" id="vault-window">
+      
+      <!-- VIEW 1: VAULT LOCK SCREEN (4-DIGIT PIN AUTHENTICATION) -->
+      <div id="vault-lock-view" class="vault-view-panel">
+        <div class="vault-door-header">
+          <div class="vault-badge-secure">
+            <span class="secure-beacon"></span>
+            <span>RESTRICTED ACCESS • ADMIN CLEARANCE ONLY</span>
+          </div>
+          <button class="modal-close-btn" id="vault-lock-close" title="Close Vault">&times;</button>
+        </div>
+
+        <div class="vault-lock-stage">
+          <!-- Animated Cyber Safe Door -->
+          <div class="vault-safe-door" id="vault-safe-door">
+            <div class="vault-door-outer-ring">
+              <div class="vault-teeth-circle"></div>
+              <div class="vault-rivets-circle"></div>
+            </div>
+            
+            <div class="vault-door-inner-dial" id="vault-dial-wheel">
+              <div class="dial-laser-line"></div>
+              <div class="dial-spokes"></div>
+              <div class="dial-center-lock">
+                <svg viewBox="0 0 24 24" class="dial-lock-icon" id="vault-lock-status-icon">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  <circle cx="12" cy="16" r="1.5"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="vault-lock-credentials">
+            <h2 class="vault-lock-title">ADMIN SECURITY VAULT</h2>
+            <p class="vault-lock-subtitle" id="vault-lock-status-msg">Enter 4-Digit Passcode to Access Web Administration & Note Architect</p>
+
+            <div class="vault-redirect-warning hidden" id="vault-redirect-warning">
+              <span class="warning-icon">🔒</span>
+              <div class="warning-text">
+                <strong>Access Restricted:</strong> Notes can <em>ONLY</em> be created inside the Vault. Authenticate with your 4-digit admin passcode to open the Note Architect.
+              </div>
+            </div>
+
+            <!-- 4-Digit PIN Slots -->
+            <div class="vault-pin-display" id="vault-pin-display">
+              <div class="pin-slot" data-slot="0"><span class="pin-dot"></span></div>
+              <div class="pin-slot" data-slot="1"><span class="pin-dot"></span></div>
+              <div class="pin-slot" data-slot="2"><span class="pin-dot"></span></div>
+              <div class="pin-slot" data-slot="3"><span class="pin-dot"></span></div>
+            </div>
+
+            <div class="vault-pin-feedback" id="vault-pin-feedback">ENTER 4-DIGIT CODE</div>
+
+            <!-- Cyber Keypad -->
+            <div class="vault-keypad-grid">
+              <button type="button" class="keypad-btn" data-key="1">1</button>
+              <button type="button" class="keypad-btn" data-key="2">2</button>
+              <button type="button" class="keypad-btn" data-key="3">3</button>
+              <button type="button" class="keypad-btn" data-key="4">4</button>
+              <button type="button" class="keypad-btn" data-key="5">5</button>
+              <button type="button" class="keypad-btn" data-key="6">6</button>
+              <button type="button" class="keypad-btn" data-key="7">7</button>
+              <button type="button" class="keypad-btn" data-key="8">8</button>
+              <button type="button" class="keypad-btn" data-key="9">9</button>
+              <button type="button" class="keypad-btn keypad-fn" id="btn-keypad-clear" data-key="clear">CLEAR</button>
+              <button type="button" class="keypad-btn" data-key="0">0</button>
+              <button type="button" class="keypad-btn keypad-fn" id="btn-keypad-back" data-key="back">⌫</button>
+            </div>
+
+            <div class="vault-passcode-hint">
+              <span>SECURITY PROTOCOL:</span> <strong class="hint-code">CLASSIFIED • ADMIN ACCESS ONLY</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: UNLOCKED ADMIN COMMAND DECK -->
+      <div id="vault-admin-view" class="vault-view-panel hidden">
+        <div class="admin-deck-header">
+          <div class="admin-identity-row">
+            <div class="admin-avatar">
+              <span class="avatar-ring"></span>
+              <span class="avatar-text">JR</span>
+            </div>
+            <div>
+              <div class="admin-title-row">
+                <h2 class="admin-title">ADMIN COMMAND DECK</h2>
+                <span class="admin-clearance-pill">LEVEL 5 SUPERUSER</span>
+              </div>
+              <p class="admin-welcome">Welcome, <strong>Jeeva R.</strong> Full administrative control granted.</p>
+            </div>
+          </div>
+
+          <div class="admin-header-actions">
+            <button type="button" class="admin-btn-lock" id="btn-vault-relock" title="Lock the vault and end session">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              Lock Vault
+            </button>
+            <button type="button" class="modal-close-btn" id="vault-admin-close" title="Exit to website">&times;</button>
+          </div>
+        </div>
+
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-nav-tabs">
+          <button type="button" class="admin-tab-btn active" data-tab="architect" id="admin-tab-architect">
+            ✦ Note Architect (Add Squares)
+          </button>
+          <button type="button" class="admin-tab-btn" data-tab="commands" id="admin-tab-commands">
+            ⚡ Admin Web Controls
+          </button>
+          <button type="button" class="admin-tab-btn" data-tab="manager" id="admin-tab-manager">
+            📚 Database Manager
+          </button>
+          <button type="button" class="admin-tab-btn" data-tab="telemetry" id="admin-tab-telemetry">
+            📊 System Telemetry
+          </button>
+        </div>
+
+        <div class="admin-deck-content-body">
+          <!-- PANEL 1: NOTE ARCHITECT (WITH DYNAMIC SQUARES BUILDER) -->
+          <div id="panel-admin-architect" class="admin-panel active">
+            <div class="architect-intro-card">
+              <div class="architect-intro-text">
+                <h3>Structured Math Unit Architect</h3>
+                <p>Create rich units with individual concept squares just like <strong>Properties of Multiplication</strong>. Each square renders as a distinct card with its own formula, definition, example, and memory tip!</p>
+              </div>
+              <div class="architect-quick-templates">
+                <button type="button" class="btn-template-pill" id="btn-template-math-props">⚡ 5 Properties Template</button>
+                <button type="button" class="btn-template-pill" id="btn-template-steps">📐 Step-by-Step Method</button>
+              </div>
+            </div>
+
+            <form id="vault-note-form" class="vault-note-form">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="vnote-title">Unit / Topic Title <span class="req">*</span></label>
+                  <input type="text" id="vnote-title" required placeholder="e.g. MULTIPLYING DECIMALS BY POWERS OF 10" />
+                </div>
+                <div class="form-group">
+                  <label for="vnote-category">Category</label>
+                  <select id="vnote-category">
+                    <option value="multiplication">Properties of Multiplication</option>
+                    <option value="division">Properties of Division</option>
+                    <option value="custom" selected>Custom 5th Grade Unit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="vnote-formula">Core Formula / Overarching Law</label>
+                  <input type="text" id="vnote-formula" placeholder="e.g. Move decimal right by number of zeros: 3.45 × 10² = 345" />
+                </div>
+                <div class="form-group">
+                  <label for="vnote-color">Card Glow Color</label>
+                  <select id="vnote-color">
+                    <option value="blue" selected>Electric Blue</option>
+                    <option value="purple">Cosmic Purple</option>
+                    <option value="cyan">Neon Cyan</option>
+                    <option value="indigo">Deep Indigo</option>
+                    <option value="orange">Solar Amber</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="vnote-desc">Unit Summary & Teacher Notes <span class="req">*</span></label>
+                <textarea id="vnote-desc" rows="2" required placeholder="Provide an overview of the unit and what 5th graders will master..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="vnote-redirect">External Link Redirect (Optional)</label>
+                <input type="url" id="vnote-redirect" placeholder="e.g. https://coolmathgames.com (Adds a link button next to 'View Notes')" />
+              </div>
+
+              <!-- DYNAMIC SQUARES SECTION (DEFAULT FORMAT) -->
+              <div class="squares-builder-section">
+                <div class="squares-builder-header">
+                  <div class="squares-header-title-box">
+                    <span class="squares-count-badge" id="squares-count-badge">2 Squares Configured</span>
+                    <h4>Individual Squares & Concepts</h4>
+                  </div>
+                  <button type="button" class="btn-add-square" id="btn-add-square">
+                    <span>+ Add Another Square / Property</span>
+                  </button>
+                </div>
+
+                <p class="squares-instruction-text">
+                  Each square below represents an individual card (like in Properties of Multiplication). Add titles, formulas, explanations, and worked examples:
+                </p>
+
+                <div class="squares-list-container" id="vault-squares-list">
+                  <!-- Dynamically populated squares -->
+                </div>
+
+                <div class="squares-footer-actions">
+                  <button type="button" class="btn-add-square secondary" id="btn-add-square-bottom">
+                    + Add Another Square / Property
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-actions-admin">
+                <button type="button" class="btn-modal-action secondary" id="btn-clear-architect">Clear Form</button>
+                <button type="submit" class="btn-modal-action primary admin-save-btn" id="btn-save-vault-note">
+                  <span>✦ Save Unit & Squares to math.io</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- PANEL 2: ADMIN WEB CONTROLS & CLI -->
+          <div id="panel-admin-commands" class="admin-panel hidden">
+            <div class="admin-commands-grid">
+              <div class="admin-cmd-card">
+                <div class="cmd-icon-box">🚀</div>
+                <h4>Add 5th Grade Decimal Unit</h4>
+                <p>Instantly injects "Multiplying Decimals by Powers of 10" with 3 pre-built concept squares.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-preset-decimals">Inject Unit</button>
+              </div>
+
+              <div class="cmd-cmd-card admin-cmd-card">
+                <div class="cmd-icon-box">📐</div>
+                <h4>Add Area Model Multiplication</h4>
+                <p>Injects 5th Grade Area Model Decomposition with 4 structured concept squares.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-preset-area">Inject Unit</button>
+              </div>
+
+              <div class="admin-cmd-card">
+                <div class="cmd-icon-box">🎉</div>
+                <h4>Burst Celebration Confetti</h4>
+                <p>Triggers full-screen physics confetti particle engine across the whole site.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-confetti">Fire Confetti</button>
+              </div>
+
+              <div class="admin-cmd-card">
+                <div class="cmd-icon-box">🔊</div>
+                <h4>Toggle Sound Effects</h4>
+                <p>Enable or disable synthesized Web Audio ASMR click and swoosh sound effects.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-toggle-sound">Toggle Audio</button>
+              </div>
+
+              <div class="admin-cmd-card">
+                <div class="cmd-icon-box">💾</div>
+                <h4>Export Database (JSON)</h4>
+                <p>Backup all math units, properties, and custom notes to a downloadable JSON file.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-export-json">Export JSON</button>
+              </div>
+
+              <div class="admin-cmd-card">
+                <div class="cmd-icon-box">📥</div>
+                <h4>Import Database (JSON)</h4>
+                <p>Restore or merge math units and notes from a JSON backup file.</p>
+                <button type="button" class="cmd-exec-btn" id="cmd-btn-import-json">Import JSON</button>
+                <input type="file" id="admin-file-import" accept=".json" class="hidden" />
+              </div>
+
+              <div class="admin-cmd-card danger">
+                <div class="cmd-icon-box">🗑️</div>
+                <h4>Clear Custom Notes</h4>
+                <p>Removes all user-created notes while preserving the official 5th Grade units.</p>
+                <button type="button" class="cmd-exec-btn danger" id="cmd-btn-clear-custom">Clear Custom</button>
+              </div>
+
+              <div class="admin-cmd-card danger">
+                <div class="cmd-icon-box">⚠️</div>
+                <h4>Reset Database to Default</h4>
+                <p>Restores original curated database: Properties of Multiplication and Division.</p>
+                <button type="button" class="cmd-exec-btn danger" id="cmd-btn-reset-db">Reset to Defaults</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 3: DATABASE MANAGER -->
+          <div id="panel-admin-manager" class="admin-panel hidden">
+            <div class="manager-table-wrapper">
+              <table class="admin-data-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Squares / Properties</th>
+                    <th>Origin</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-manager-tbody">
+                  <!-- Dynamically populated rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANEL 4: SYSTEM TELEMETRY -->
+          <div id="panel-admin-telemetry" class="admin-panel hidden">
+            <div class="telemetry-grid">
+              <div class="telem-stat-card">
+                <span class="telem-label">TOTAL UNITS / TOPICS</span>
+                <span class="telem-val" id="telem-topics-count">2</span>
+              </div>
+              <div class="telem-stat-card">
+                <span class="telem-label">TOTAL CONCEPT SQUARES</span>
+                <span class="telem-val" id="telem-squares-count">10</span>
+              </div>
+              <div class="telem-stat-card">
+                <span class="telem-label">LOCAL STORAGE USAGE</span>
+                <span class="telem-val" id="telem-storage-kb">12.4 KB</span>
+              </div>
+              <div class="telem-stat-card">
+                <span class="telem-label">AUTHENTICATED SUPERUSER</span>
+                <span class="telem-val" style="color: var(--neon-cyan);">Jeeva R.</span>
+              </div>
+              <div class="telem-stat-card">
+                <span class="telem-label">SECURITY PROTOCOL</span>
+                <span class="telem-val" style="color: #34d399;">SHA-256 ENCRYPTED</span>
+              </div>
+              <div class="telem-stat-card">
+                <span class="telem-label">ASMR AUDIO ENGINE</span>
+                <span class="telem-val" style="color: var(--neon-purple);">ACTIVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: FEEDBACK / HELP US IMPROVE ================= -->
+  <div id="feedback-modal" class="modal-backdrop hidden">
+    <div class="modal-window glass-modal feedback-window">
+      <div class="modal-header">
+        <span class="modal-cat-badge">COMMUNITY SUGGESTIONS</span>
+        <button class="modal-close-btn" id="modal-feedback-close">&times;</button>
+      </div>
+      <h2 class="modal-topic-title">Help us improve math.io</h2>
+      <p class="modal-topic-desc">What 5th grade math topics should Jeeva add next?</p>
+      
+      <form id="feedback-form" class="new-note-form">
+        <div class="form-group">
+          <label>Your Name or Grade</label>
+          <input type="text" id="fb-user-name" placeholder="e.g. Jeeva or 5th Grade Math Whiz" />
+        </div>
+        <div class="form-group">
+          <label>What would make math.io even cooler?</label>
+          <textarea id="fb-user-message" rows="3" required placeholder="e.g. More area model visualizations, fraction bar games, or dark neon themes!"></textarea>
+        </div>
+        <button type="submit" class="btn-modal-action primary" style="width: 100%;">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= PRINT CHEAT SHEET CONTAINER ================= -->
+  <div id="printable-cheat-sheet" class="printable-area hidden">
+    <div class="sheet-header">
+      <h1>math.io — 5th Grade Ultimate Math Sheet</h1>
+      <p>Properties of Multiplication & Division Reference Guide • made with love from Jeeva R.</p>
+    </div>
+    <div id="printable-content"></div>
+  </div>
+
+  <!-- Confetti Canvas for celebrations -->
+  <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+  <!-- ================= AI CHATBOT (BOTTOM RIGHT) ================= -->
+  <div id="ai-chatbot-container" class="ai-chatbot-container">
+    <div id="ai-chat-window" class="ai-chat-window hidden">
+      <div class="ai-chat-header">
+        <div class="ai-avatar-glow">
+          <span class="ai-robot-icon">🤖</span>
+        </div>
+        <div class="ai-header-text">
+          <h4>math.io Assistant</h4>
+          <span class="ai-status">Online • Ready to help!</span>
+        </div>
+        <button id="ai-close-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div id="ai-chat-messages" class="ai-chat-messages">
+        <div class="chat-msg ai-msg">
+          <div class="msg-bubble">Hi there! I'm the math.io AI. Need help with the 5th grade notes or navigating the site?</div>
+        </div>
+      </div>
+      <div class="ai-chat-input-area">
+        <input type="text" id="ai-chat-input" placeholder="Ask a math question..." autocomplete="off" />
+        <button id="ai-send-btn" class="ai-send-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <button id="ai-chat-bubble" class="ai-chat-bubble" title="Need help?">
+      <div class="bubble-pulse"></div>
+      <span class="bubble-icon">✨</span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

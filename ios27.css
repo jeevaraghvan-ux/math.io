@@ -1,0 +1,661 @@
+/* ios27.css - VisionOS / iOS 27 Liquid Glass Theme */
+
+:root {
+  /* Dynamic Liquid Colors */
+  --neon-blue: #0A84FF;
+  --neon-purple: #BF5AF2;
+  --neon-cyan: #64D2FF;
+  --neon-lime: #30D158;
+  --neon-magenta: #FF375F;
+  --neon-orange: #FF9F0A;
+
+  /* VisionOS Glass Bases */
+  --glass-bg: rgba(30, 30, 35, 0.45);
+  --glass-bg-hover: rgba(50, 50, 55, 0.55);
+  --glass-card: rgba(40, 40, 45, 0.55);
+  --glass-card-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(60px) saturate(200%);
+
+  /* Typography */
+  --text-main: #FFFFFF;
+  --text-muted: #EBEBF5;
+  --text-dim: rgba(235, 235, 245, 0.6);
+  
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Base resets for iOS feel */
+body {
+  font-family: var(--font-sans);
+  background-color: #000;
+  letter-spacing: -0.015em;
+}
+
+/* 1. Liquid Wallpaper / Animated Mesh Background */
+.ambient-fluid-canvas-wrap {
+  background: #000;
+}
+
+.ambient-fluid-canvas-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(10, 132, 255, 0.9) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(138, 43, 226, 0.9) 0%, transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(75, 0, 130, 0.85) 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(25, 25, 112, 0.85) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(94, 92, 230, 0.8) 0%, transparent 60%);
+  filter: blur(120px) contrast(150%);
+  animation: liquidMesh 25s infinite alternate ease-in-out;
+  z-index: -2;
+}
+
+@keyframes liquidMesh {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(15deg) translate(-5%, 5%); }
+  100% { transform: scale(0.9) rotate(-15deg) translate(5%, -5%); }
+}
+
+/* Remove the cyber grid and dark blobs to let liquid shine */
+.loader-cyber-grid,
+.fluid-blob,
+.ambient-noise-layer {
+  display: none !important;
+}
+
+/* 2. Glassmorphism for Components */
+
+/* Top Nav Pill */
+.glass-pill-nav {
+  background: rgba(40, 40, 45, 0.35) !important;
+  backdrop-filter: blur(50px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  border-radius: 999px !important;
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+/* Buttons */
+.hero-cta-btn, .btn-modal-action.primary, .cmd-exec-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+.hero-cta-btn:hover, .btn-modal-action.primary:hover, .cmd-exec-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.6) !important;
+}
+
+.hero-secondary-btn {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 999px !important;
+}
+
+/* Text adjustments */
+.hero-neon-word {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.02em !important;
+  animation: none !important;
+}
+
+.hero-script-word {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Modals & Vault Glass */
+.glass-modal, .table-card-glass, .admin-cmd-card, .cmd-cmd-card {
+  background: rgba(35, 35, 40, 0.4) !important;
+  backdrop-filter: blur(60px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(220%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+  border-radius: 32px !important;
+}
+
+/* Remove heavy neon shadows from vault button */
+.vault-bubble-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+}
+.vault-bubble-btn .vault-btn-halo {
+  display: none !important;
+}
+
+/* Inputs and Forms */
+input, select, textarea {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  color: #fff !important;
+  backdrop-filter: blur(20px) !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+  outline: none !important;
+}
+
+/* Vault Keypad */
+.vault-keypad-grid .keypad-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important; /* Perfect circles for iOS style */
+  aspect-ratio: 1 / 1 !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  font-family: var(--font-display) !important;
+  font-weight: 400 !important;
+  font-size: 1.5rem !important;
+}
+
+.vault-keypad-grid .keypad-btn:active {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: scale(0.95) !important;
+}
+
+.vault-keypad-grid .keypad-fn {
+  border-radius: 20px !important;
+  aspect-ratio: auto !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Loading Overlay tweaks */
+.loader-overlay {
+  background: rgba(20, 20, 25, 0.6) !important;
+  backdrop-filter: blur(80px) saturate(200%) !important;
+}
+.loader-bg-glow {
+  background: radial-gradient(circle, rgba(10, 132, 255, 0.4) 0%, rgba(191, 90, 242, 0.3) 35%, transparent 75%) !important;
+}
+.loader-ring-1 {
+  border-top-color: #0A84FF !important;
+  border-right-color: #BF5AF2 !important;
+  box-shadow: 0 0 20px rgba(10, 132, 255, 0.4) !important;
+}
+
+/* Search bar styling */
+.search-input-wrap {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 999px !important;
+}
+.search-input-wrap input {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Table styling for glass */
+.admin-data-table th, .notes-data-table th {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.admin-data-table td, .notes-data-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Category Pills */
+.cat-pill {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 999px !important;
+}
+.cat-pill.active {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* Scrollbar tweaks */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/*
+AI
+CHATBOT
+STYLES
+*/
+
+/* ================= AI CHATBOT (LIQUID GLASS THEME) ================= */
+.ai-chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.ai-chat-bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(10, 132, 255, 0.5), inset 0 0 15px rgba(255,255,255,0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-chat-bubble:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.bubble-pulse {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  background: inherit;
+  z-index: -1;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.7;
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(1.6); opacity: 0; }
+}
+
+.bubble-icon {
+  font-size: 28px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.ai-chat-window {
+  width: 350px;
+  height: 500px;
+  margin-bottom: 20px;
+  background: rgba(15, 15, 25, 0.65);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom right;
+}
+
+.ai-chat-window.hidden {
+  opacity: 0;
+  transform: scale(0.5) translateY(50px);
+  pointer-events: none;
+}
+
+.ai-chat-header {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-avatar-glow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 0 15px rgba(255, 55, 95, 0.6);
+}
+
+.ai-header-text h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.ai-status {
+  font-size: 0.75rem;
+  color: var(--neon-magenta);
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover { color: #fff; }
+
+.ai-chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ai-chat-messages::-webkit-scrollbar { width: 6px; }
+.ai-chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+.chat-msg {
+  display: flex;
+  width: 100%;
+}
+
+.chat-msg.ai-msg { justify-content: flex-start; }
+.chat-msg.user-msg { justify-content: flex-end; }
+
+.msg-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.ai-msg .msg-bubble {
+  background: rgba(255, 255, 255, 0.1);
+  border-top-left-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-msg .msg-bubble {
+  background: linear-gradient(135deg, var(--neon-blue), #4c28f5);
+  border-bottom-right-radius: 4px;
+}
+
+.ai-chat-input-area {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 10px;
+}
+
+#ai-chat-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 10px 16px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+#ai-chat-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(10, 132, 255, 0.3);
+}
+
+.ai-send-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--neon-blue);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-send-btn:hover {
+  transform: scale(1.05);
+  background: var(--neon-magenta);
+}
+.ai-send-btn svg { width: 18px; height: 18px; }
+
+/* ================= HOLOGRAPHIC & NEON GLOW UPGRADES ================= */
+.nav-brand-cursive {
+  background: linear-gradient(to right, #FF375F, #BF5AF2, #0A84FF, #64D2FF);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holoText 8s ease infinite;
+}
+
+@keyframes holoText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.deck-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.deck-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(138, 43, 226, 0.3), inset 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.deck-card:hover .card-glow-layer {
+  opacity: 0.8;
+  filter: blur(25px);
+}
+
+.hero-cta-btn, .btn-modal-action.primary, .admin-save-btn {
+  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+  box-shadow: 0 10px 30px rgba(255, 55, 95, 0.3);
+  transition: all 0.3s;
+}
+
+.hero-cta-btn:hover, .btn-modal-action.primary:hover, .admin-save-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(191, 90, 242, 0.5);
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+}
+
+/* Chatbot Typing Indicator & Plaque */
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--neon-magenta);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+  box-shadow: 0 0 8px var(--neon-magenta);
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.creator-plaque {
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.4), rgba(10, 132, 255, 0.2));
+  border: 1px solid var(--neon-magenta);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 0 20px rgba(255, 55, 95, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  line-height: 1.5;
+}
+.plaque-title {
+  color: var(--neon-magenta);
+  font-weight: 900;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.chat-action-btn {
+  margin-top: 10px;
+  background: rgba(10, 132, 255, 0.2);
+  border: 1px solid var(--neon-blue);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.chat-action-btn:hover {
+  background: var(--neon-blue);
+  box-shadow: 0 0 15px var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+/* Mouse Spotlight */
+#mouse-spotlight {
+  position: fixed;
+  top: 0; left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(138,43,226,0.15) 0%, rgba(10,132,255,0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+/* ================= CINEMATIC MODE (#74) ================= */
+body.cinematic-mode .top-nav,
+body.cinematic-mode .footer,
+body.cinematic-mode .hero-mega-title,
+body.cinematic-mode .hero-subtitle,
+body.cinematic-mode .hero-cta-btn,
+body.cinematic-mode .deck-controls,
+body.cinematic-mode .ai-chatbot-container {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.cinematic-mode .app-main {
+  transform: scale(1.1) translateY(-50px);
+}
+
+.top-nav, .footer, .hero-mega-title, .hero-subtitle, .hero-cta-btn, .deck-controls, .ai-chatbot-container {
+  transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.app-main {
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/* ================= MASTER SPRINT CSS ================= */
+/* Ripple (#79) */
+.click-ripple {
+  position: fixed; width: 2px; height: 2px;
+  background: transparent; border: 2px solid var(--neon-cyan);
+  border-radius: 50%; pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: rippleAnim 0.6s ease-out forwards;
+}
+@keyframes rippleAnim {
+  100% { width: 200px; height: 200px; opacity: 0; border-width: 5px; }
+}
+
+/* Origami Fold (#75) */
+.origami-fold {
+  animation: origami 0.5s ease-in forwards !important;
+}
+@keyframes origami {
+  0% { transform: scale(1) rotateX(0deg); opacity: 1; }
+  50% { transform: scale(0.5) rotateX(90deg); opacity: 0.5; }
+  100% { transform: scale(0) rotateX(180deg); opacity: 0; }
+}
+
+/* Chaos Spin (#100) */
+@keyframes chaosSpin {
+  100% { transform: rotate(360deg) scale(0.8); filter: hue-rotate(360deg); }
+}
+@keyframes rainbowBg {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Math Keyboard (#93) */
+#math-keyboard {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.8); border: 1px solid var(--neon-magenta);
+  padding: 10px; border-radius: 12px; display: flex; gap: 10px; z-index: 10000;
+  transition: opacity 0.3s;
+}
+.mk-btn {
+  background: rgba(255,255,255,0.1); border: none; color: #fff;
+  padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 1.2rem;
+}
+.mk-btn:hover { background: var(--neon-magenta); }

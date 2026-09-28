@@ -1,0 +1,19 @@
+{
+  "name": "math.io",
+  "version": "1.0.0",
+  "description": "5th Grade Math Notes, Reimagined — interactive math notebook, properties of multiplication & division",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "math",
+    "education",
+    "5th-grade",
+    "interactive-notebook",
+    "math-notes"
+  ],
+  "author": "Jeeva R.",
+  "license": "MIT"
+}
+
